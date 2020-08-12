@@ -1,0 +1,24 @@
+```
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* prehead=new ListNode(0);
+        ListNode* curr=prehead;
+        int adder=0;
+        
+        while(l1||l2||adder){
+            
+            if(l1){adder+=l1->val; l1=l1->next;}
+            if(l2){adder+=l2->val; l2=l2->next;}
+            int temp=adder%10;
+            adder/=10;
+            
+            ListNode*NextNode=new ListNode(temp);
+            curr->next=NextNode;
+            curr=curr->next;
+            
+        }
+        return prehead->next;
+    }
+};
+```
