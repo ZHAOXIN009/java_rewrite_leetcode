@@ -1,0 +1,35 @@
+```
+class Solution {
+    private static final HashSet<Character> vowels = new HashSet<>(
+            Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
+
+    public String toGoatLatin(String S) {
+        if (S == null || S.length() == 0) {
+            return "";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        StringBuilder suffix = new StringBuilder("a");
+
+        for (String w : S.split(" ")) {
+            if (sb.length() != 0) {
+                sb.append(" ");
+            }
+
+            char fChar = w.charAt(0);
+            if (vowels.contains(fChar)) {
+                sb.append(w);
+            } else {
+                sb.append(w.substring(1));
+                sb.append(fChar);
+            }
+
+            sb.append("ma").append(suffix);
+
+            suffix.append("a");
+        }
+
+        return sb.toString();
+    }
+}
+```
