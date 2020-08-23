@@ -1,0 +1,18 @@
+```
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int res=Integer.MIN_VALUE;
+        int curr=0;
+        for(int i: nums){
+            if(curr+i<i){
+                curr=i;
+            }
+            else{
+                curr+=i;
+            }
+            res=Integer.max(res,curr);
+        }
+        return res;
+    }
+}
+```
